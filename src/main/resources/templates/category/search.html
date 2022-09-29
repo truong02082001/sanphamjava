@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CATEGORY VIEW</title>
+</head>
+<body >
+<form action="@{/category/search}" method="post">
+</form>
+
+<a th:href="@{/category/create}" >Create</a>
+<table border="1" >
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>other</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="category: ${categoryList}">
+    <td th:text="${category.id}"></td>
+    <td th:text="${category.name}"></td>
+    <td>
+      <a th:href="@{'/category/edit?id=' + ${category.id}}" >EDIT</a>
+      <a th:href="@{'/category/delete?id=' + ${category.id}}">DELETE</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

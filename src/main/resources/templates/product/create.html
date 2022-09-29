@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/product/create}" method="post" enctype="multipart/form-data">
+    <div>
+     <label>Name: </label>
+        <input type="text" placeholder="nhap ten san pham..." name="name"><br>
+    </div>
+    <div>
+        <label>Price: </label>
+        <input type="text" placeholder="nhap gia cua san pham..." name="price"><br>
+    </div>
+    <div>
+        <label> Description: </label>
+        <input type="text" placeholder="nhap mo ta san pham..." name="description"><br>
+    </div>
+    <div>
+        <label>Image: </label>
+        <input type="file" name="file" /><br>
+    </div>
+    <div>
+        <label>Select Category: </label>
+        <select name="category.id">
+            <option value="">------Select-----</option>
+            <option th:each="cate : ${categoryList}" th:value="${cate.id}"
+                    th:text="${cate.name}"></option>
+        </select><br>
+    </div>
+    <button type="submit"> Save</button>
+</form>
+</body>
+</html>

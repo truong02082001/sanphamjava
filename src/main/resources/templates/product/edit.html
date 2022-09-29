@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT PRODUCT</title>
+</head>
+<body>
+    <form action="product/edit" method="post">
+        <div>
+            <label th:for="name">Name: </label>
+            <input type="text" th:value="${product.name}"/><br>
+        </div>
+        <div>
+            <label th:for="price">Price: </label>
+            <input type="text" th:value="${product.price}"/><br>
+        </div>
+        <div>
+            <label th:for="description">Description: </label>
+            <input type="text" th:value="${product.description}"/><br>
+        </div>
+        <div>
+            <label th:for="file">Image: </label>
+            <input name="file" th:value="${product.image}"/><br>
+        </div>
+        <div>
+            <label>Select Category: </label>
+            <select name="category.id">
+                <option>------SELECT------</option>
+                <option th:each="cate : ${categoryList}" th:value="${cate.id}" th:text="${cate.name}"></option>
+            </select>
+        </div>
+    </form>
+</body>
+</html>

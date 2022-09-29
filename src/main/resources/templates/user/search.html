@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USER SEARCH</title>
+</head>
+<body>
+    <form action="${/user/search}" method="post">
+        <a th:href="@{/user/create}">Create</a>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>USER NAME</th>
+                <th>PASSWORD</th>
+                <th>EMAIL</th>
+                <th>ROLES</th>
+                <th>OTHER</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user :${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.userName}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.roles}"></td>
+                <td>
+                    <a th:href="@{'/user/edit?id='+${user.id}}">EDIT</a>
+                    <a th:href="@{'/user/delete?id='+${user.id}}">DELETE</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PRODUCT VIEW</title>
+</head>
+<body>
+<form action="${/product/search}" method="post">
+  <a th:href="@{/product/create}" >Create</a>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>DESCRIPTION</th>
+      <th>IMAGE</th>
+      <th>CATEGORY</th>
+      <th>Other</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${productList}">
+      <td th:text="${product.id}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.price}"></td>
+      <td th:text="${product.description}"></td>
+      <td ><img id="img" style="width: 300px;"
+                th:src="@{'/product/download-file?image='+${product.image}}" width="300"></td>
+      <td th:text="${product.category.name}"> </td>
+      <td>
+        <a th:href="@{'/product/edit?id='+${product.id}}">EDIT</a>
+        <a th:href="@{'/product/delete?id='+${product.id}}">DELETE</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
