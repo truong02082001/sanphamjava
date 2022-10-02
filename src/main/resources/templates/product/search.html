@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="template.html"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>PRODUCT VIEW</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body layout:fragment="body">
 <form action="${/product/search}" method="post">
-  <a th:href="@{/product/create}" >Create</a>
-  <table border="1">
+  <a th:href="@{/product/create}" class="btn btn-info">Create</a>
+  <table  class="table table-striped">
     <thead>
     <tr>
       <th>ID</th>

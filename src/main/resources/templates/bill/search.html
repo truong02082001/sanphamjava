@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="template.html"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>BILL SEARCH</title>
 </head>
-<body>
-    <form th:action="${/bill/search}" method="post">
+<body layout:fragment="body">
+    <form action="${/bill/search}" method="post">
       <a th:href="@{/bill/create}"> Create </a>
       <table border="1">
           <thead>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USER EDIT</title>
+</head>
+<body>
+  <form action="${bill/edit}" method="post">
+    <div>
+      <label>BY DATE: </label>
+      <input type="date" placeholder="nhap ngay mua hang....." name="byDate">
+    </div>
+    <div>
+      <label>SELECT USER: </label>
+      <select name="user.id">
+        <option>----SELECT-----</option>
+        <option th:each="user : ${userList}" th:value="${user.id}" th:text="${user.name}"></option>
+      </select>
+    </div>
+  </form>
+</body>
+</html>

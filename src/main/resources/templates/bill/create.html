@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>BILL CREATE</title>
 </head>
 <body>
-    <form th:action="${/bill/create}" method="post">
+    <form action="${/bill/create}" method="post">
       <div>
         <label>BY DATE: </label>
         <input type="date" placeholder="Nhap ngay mua hang..." name="byDate">
       </div>
       <div>
-        <label></label>
+        <label>SELECT USER:</label>
+          <select name="user.id">
+              <option>-------SELECT------</option>
+              <option th:each="user : ${userList}" th:value="${user.id}" th:text="${user.name}"></option>
+          </select></br>
       </div>
+        <button type="submit">Save</button>
     </form>
 </body>
 </html>

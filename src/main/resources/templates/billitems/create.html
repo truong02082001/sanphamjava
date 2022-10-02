@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/billitems/create}" method="post">
+      <div>
+        <label>PRODUCT NAME: </label>
+        <select name="product.id">
+          <option>----Select----</option>
+          <option th:each="product : ${productList}" th:value="${product.id}" th:text="${product.name}"></option>
+        </select></br>
+      </div>
+      <div>
+        <label>QUANTITY: </label>
+        <input type="text" placeholder="Nhap so luong...." name="quantity">
+      </div>
+      <div>
+        <label>BY PRICR: </label>
+        <input type="text" placeholder="Theo gia...." name="byPrice">
+      </div>
+      <div>
+        <label>BILL ID:  </label>
+        <select name="bill.id">
+          <option value="">-----Select-----</option>
+          <option th:each="bill: ${billList}" th:value="${bill.id}" th:text="${bill.byDate}"></option>
+        </select>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+</body>
+</html>

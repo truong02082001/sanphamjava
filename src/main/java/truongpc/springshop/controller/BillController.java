@@ -12,7 +12,7 @@ import truongpc.springshop.repontory.UserRepo;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/Bill")
+@RequestMapping("/bill")
 public class BillController {
     @Autowired
     BillRepo billRepo;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="template.html"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="body">
+    <form action="${/billitem/search}" method="post">
+        <a th:href="@{/billitems/create}"> CREATE </a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCT NAME</th>
+                    <th>QUANTITY</th>
+                    <th>BY PRICE</th>
+                    <th>BILL ID</th>
+                    <th>OTHER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="billitems : ${billitemsList}">
+                    <td th:text="billitems.id"></td>
+                    <td th:text="billitems.product.name"></td>
+                    <td th:text="billitems.quantity"></td>
+                    <td th:text="billitems.byPrice"></td>
+                    <td th:text="billitems.bill.id"></td>
+                    <td>
+                        <a th:href="@{'/billitems/edit?id=' + ${billitems.id}}" >EDIT</a>
+                        <a th:href="@{'/billitems/delete?id=' + ${billitems.id}}">DELETE</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
